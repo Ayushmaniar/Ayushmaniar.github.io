@@ -47,7 +47,7 @@ function Home() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl sm:text-2xl text-gray-300 mb-8"
           >
-            MS-CSE Student at UC San Diego | Ex Data Scientist - III at Walmart
+            MS-CSE Student at UC San Diego | Ex Data Scientist - III at Walmart | IIT Madras 2021 Alumni
           </motion.p>
           
           <motion.div
