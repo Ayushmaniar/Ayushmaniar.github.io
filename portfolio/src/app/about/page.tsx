@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { FaLaptopCode, FaDatabase, FaRobot } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function About() {
   const [sectionRef, sectionInView] = useInView({
@@ -69,24 +70,38 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 md:p-8"
             >
-              <div className="prose dark:prose-invert max-w-none">
-                <p className="mb-4">
-                  I'm currently pursuing a Master of Science in Computer Science at the University of California, San Diego, 
-                  where I'm focusing on advanced topics in artificial intelligence and machine learning.
-                </p>
-                <p className="mb-4">
-                  Prior to my graduate studies, I worked as a Data Scientist at Walmart where I helped develop 
-                  data-driven solutions to optimize business operations and enhance customer experience.
-                </p>
-                <p className="mb-4">
-                  My research interests lie at the intersection of AI agents, deep learning, and multi-agent 
-                  collaboration. I'm particularly passionate about developing intelligent systems that can 
-                  reason, collaborate, and solve complex problems.
-                </p>
-                <p>
-                  When I'm not coding or researching, you can find me exploring new technologies, 
-                  contributing to open-source projects, or sharing my knowledge with the community.
-                </p>
+              <div className="flex flex-col md:flex-row items-start gap-6">
+                <div className="w-full md:w-1/3 flex-shrink-0">
+                  <Image
+                    src="/Ayush_Maniar_UCSD_ID_PIC.png"
+                    alt="Ayush Maniar"
+                    width={240}
+                    height={240}
+                    className="rounded-lg shadow-md w-full h-auto"
+                    priority
+                  />
+                </div>
+                <div className="w-full md:w-2/3">
+                  <div className="prose dark:prose-invert max-w-none">
+                    <p className="mb-4">
+                      I'm currently pursuing a Master of Science in Computer Science at the University of California, San Diego, 
+                      where I'm focusing on advanced topics in artificial intelligence and machine learning.
+                    </p>
+                    <p className="mb-4">
+                      Prior to my graduate studies, I worked as a Data Scientist at Walmart where I helped develop 
+                      data-driven solutions to optimize business operations and enhance customer experience.
+                    </p>
+                    <p className="mb-4">
+                      My research interests lie at the intersection of AI agents, deep learning, and multi-agent 
+                      collaboration. I'm particularly passionate about developing intelligent systems that can 
+                      reason, collaborate, and solve complex problems.
+                    </p>
+                    <p>
+                      When I'm not coding or researching, you can find me exploring new technologies, 
+                      contributing to open-source projects, or sharing my knowledge with the community.
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
