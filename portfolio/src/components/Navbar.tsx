@@ -10,7 +10,6 @@ const navLinks = [
   { name: 'About', path: '/#about' },
   { name: 'Projects', path: '/#projects' },
   { name: 'Resume', path: '/#resume' },
-  { name: 'Blog', path: '/blog' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -32,14 +31,17 @@ export default function Navbar() {
   };
   
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    // Only handle hash links on the current page
+    // Always navigate to homepage for hash links
     if (path.startsWith('/#')) {
       e.preventDefault();
+      if (window.location.pathname !== '/') {
+        window.location.href = path;
+        return;
+      }
       const id = path.substring(2);
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-        // Close mobile menu if open
         if (isOpen) setIsOpen(false);
       }
     }

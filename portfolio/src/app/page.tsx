@@ -38,7 +38,7 @@ function Home() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
           >
-            Hi, I'm your one and only <span className="text-purple-400">Ayush Maniar</span>
+            Hi, I'm <span className="text-purple-400">Ayush Maniar</span>
           </motion.h1>
           
           <motion.p
@@ -47,7 +47,7 @@ function Home() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl sm:text-2xl text-gray-300 mb-8"
           >
-            MSCS Student at UC San Diego | Former Data Scientist at Walmart | AI Agents & Deep Learning Specialist
+            MS-CSE Student at UC San Diego | Ex Data Scientist - III at Walmart
           </motion.p>
           
           <motion.div
@@ -112,66 +112,6 @@ function Home() {
                 contributing to open-source projects, or sharing my knowledge with the community.
               </p>
             </div>
-          </motion.div>
-        </div>
-      </section>
-      
-      {/* Skills Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-800">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.1 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl font-bold text-white mb-2">My Skills</h2>
-            <div className="w-12 h-1 bg-purple-600 mx-auto"></div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-gray-700 p-6 rounded-lg text-center"
-            >
-              <FaRobot className="text-purple-400 text-3xl mb-2 mx-auto" />
-              <h3 className="text-xl font-semibold text-white mb-2">AI Agents</h3>
-              <p className="text-gray-300">Developing intelligent agents capable of reasoning and decision making in complex environments.</p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-gray-700 p-6 rounded-lg text-center"
-            >
-              <FaLaptopCode className="text-purple-400 text-3xl mb-2 mx-auto" />
-              <h3 className="text-xl font-semibold text-white mb-2">Deep Learning</h3>
-              <p className="text-gray-300">Neural networks architecture, computer vision, and natural language processing models.</p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="bg-gray-700 p-6 rounded-lg text-center"
-            >
-              <FaDatabase className="text-purple-400 text-3xl mb-2 mx-auto" />
-              <h3 className="text-xl font-semibold text-white mb-2">Data Science</h3>
-              <p className="text-gray-300">Statistical analysis, data visualization, and machine learning algorithms.</p>
-            </motion.div>
           </motion.div>
         </div>
       </section>

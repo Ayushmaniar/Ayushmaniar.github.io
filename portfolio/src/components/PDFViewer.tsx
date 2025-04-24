@@ -26,7 +26,8 @@ const PDFViewer = ({ pdfUrl }: PDFViewerProps) => {
       <div className="flex justify-center">
         <iframe 
           src={`${pdfUrl}#view=FitH`}
-          className="w-full h-[600px] border-0 rounded-md shadow-md"
+          className="w-full h-[60vw] max-h-[600px] min-h-[350px] sm:h-[500px] md:h-[600px] border-0 rounded-md shadow-md"
+          style={{ maxWidth: '100%' }}
           title="Resume PDF Viewer"
         />
       </div>
