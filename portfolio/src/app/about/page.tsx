@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { FaLaptopCode, FaDatabase, FaRobot } from 'react-icons/fa';
 import Image from 'next/image';
 
 export default function About() {
@@ -19,9 +18,9 @@ export default function About() {
   });
 
   const skills = [
-    { name: "AI Agents", icon: <FaRobot className="text-purple-500 text-3xl mb-2" />, description: "Developing intelligent agents capable of reasoning and decision making in complex environments." },
-    { name: "Deep Learning", icon: <FaLaptopCode className="text-purple-500 text-3xl mb-2" />, description: "Neural networks architecture, computer vision, and natural language processing models." },
-    { name: "Data Science", icon: <FaDatabase className="text-purple-500 text-3xl mb-2" />, description: "Statistical analysis, data visualization, and machine learning algorithms." },
+    "AI Agents", "Deep Learning", "Python", "PyTorch", "Huggingface", 
+    "LangChain", "smolAgents", "SQL", "Databricks", "JavaScript", 
+    "TensorFlow", "Git", "Linux", "PySpark", "StreamLit"
   ];
 
   const containerVariants = {
@@ -49,7 +48,7 @@ export default function About() {
       
       <main className="flex-grow pt-16">
         {/* About Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900" id="about">
           <div 
             ref={sectionRef}
             className="max-w-4xl mx-auto"
@@ -60,7 +59,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">About Me</h1>
+              <h1 className="text-3xl font-bold text-white mb-4">About Me</h1>
               <div className="w-16 h-1 bg-purple-600 mx-auto"></div>
             </motion.div>
             
@@ -68,78 +67,57 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 md:p-8"
+              className="flex flex-col md:flex-row items-start justify-center gap-8 max-w-[900px] mx-auto py-8"
             >
-              <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-full md:w-1/3 flex-shrink-0">
-                  <Image
-                    src="/Ayush_Maniar_UCSD_ID_PIC.png"
-                    alt="Ayush Maniar"
-                    width={240}
-                    height={240}
-                    className="rounded-lg shadow-md w-full h-auto"
-                    priority
-                  />
-                </div>
-                <div className="w-full md:w-2/3">
-                  <div className="prose dark:prose-invert max-w-none">
-                    <p className="mb-4">
-                      I'm currently pursuing a Master of Science in Computer Science at the University of California, San Diego, 
-                      where I'm focusing on advanced topics in artificial intelligence and machine learning.
-                    </p>
-                    <p className="mb-4">
-                      Prior to my graduate studies, I worked as a Data Scientist at Walmart where I helped develop 
-                      data-driven solutions to optimize business operations and enhance customer experience.
-                    </p>
-                    <p className="mb-4">
-                      My research interests lie at the intersection of AI agents, deep learning, and multi-agent 
-                      collaboration. I'm particularly passionate about developing intelligent systems that can 
-                      reason, collaborate, and solve complex problems.
-                    </p>
-                    <p>
-                      When I'm not coding or researching, you can find me exploring new technologies, 
-                      contributing to open-source projects, or sharing my knowledge with the community.
-                    </p>
-                  </div>
-                </div>
+              <div className="flex-none md:w-[30%] flex justify-center items-start">
+                <Image
+                  src="/Ayush_Maniar_UCSD_ID_PIC.png"
+                  alt="Ayush Maniar"
+                  width={240}
+                  height={240}
+                  className="w-full max-w-[200px] h-auto rounded-xl shadow-xl object-cover"
+                  priority
+                />
               </div>
-            </motion.div>
-          </div>
-        </section>
-        
-        {/* Skills Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800">
-          <div 
-            ref={skillsRef}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Expertise</h2>
-              <div className="w-16 h-1 bg-purple-600 mx-auto"></div>
+              
+              <div className="flex-grow md:w-[70%] max-w-[800px] mx-auto text-left">
+                <p className="mb-4 text-gray-300 leading-relaxed">
+                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego.
+                </p>
+                <p className="mb-4 text-gray-300 leading-relaxed">
+                  Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I focused on leveraging data science and machine learning to solve complex business problems, particularly in logistics and inventory optimization. I have experience in time series forecasting, optimization using MILP, and building predictive models.
+                </p>
+                <p className="mb-4 text-gray-300 leading-relaxed">
+                  I also co-founded 'Eye In The Sky', a Deep Learning & Computer Vision startup focused on disaster management using drones during my undergraduate studies at IIT Madras.
+                </p>
+              </div>
             </motion.div>
             
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={skillsInView ? "visible" : "hidden"}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              ref={skillsRef}
+              initial={{ opacity: 0, y: 20 }}
+              animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="w-full max-w-[900px] mx-auto pt-6"
             >
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="bg-gray-50 dark:bg-gray-700 rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300"
-                >
-                  {skill.icon}
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{skill.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
-                </motion.div>
-              ))}
+              <h3 className="text-2xl font-bold text-purple-400 mb-6 text-center">Key Skills</h3>
+              
+              <motion.ul
+                variants={containerVariants}
+                initial="hidden"
+                animate={skillsInView ? "visible" : "hidden"}
+                className="flex flex-wrap justify-center gap-3 list-none p-0"
+              >
+                {skills.map((skill, index) => (
+                  <motion.li
+                    key={index}
+                    variants={itemVariants}
+                    className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 text-sm"
+                  >
+                    {skill}
+                  </motion.li>
+                ))}
+              </motion.ul>
             </motion.div>
           </div>
         </section>
