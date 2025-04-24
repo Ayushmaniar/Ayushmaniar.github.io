@@ -74,7 +74,7 @@ function Home() {
       
       {/* About Section */}
       <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,26 +91,31 @@ function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, amount: 0.1 }}
-            className="bg-gray-800 rounded-lg shadow-md p-6 md:p-8"
+            className="bg-gray-800 rounded-lg shadow-md p-6 md:p-10"
           >
-            <div className="prose dark:prose-invert max-w-none">
-              <p className="mb-4 text-gray-300">
-                I'm currently pursuing a Master of Science in Computer Science at the University of California, San Diego, 
-                where I'm focusing on advanced topics in artificial intelligence and machine learning.
-              </p>
-              <p className="mb-4 text-gray-300">
-                Prior to my graduate studies, I worked as a Data Scientist at Walmart where I helped develop 
-                data-driven solutions to optimize business operations and enhance customer experience.
-              </p>
-              <p className="mb-4 text-gray-300">
-                My research interests lie at the intersection of AI agents, deep learning, and multi-agent 
-                collaboration. I'm particularly passionate about developing intelligent systems that can 
-                reason, collaborate, and solve complex problems.
-              </p>
-              <p className="text-gray-300">
-                When I'm not coding or researching, you can find me exploring new technologies, 
-                contributing to open-source projects, or sharing my knowledge with the community.
-              </p>
+            <div className="flex flex-col md:flex-row gap-12 items-center">
+              <div className="md:w-3/10 flex justify-center">
+                <motion.img
+                  src="/Ayush_Maniar_UCSD_ID_PIC.png"
+                  alt="Ayush Maniar"
+                  className="rounded-lg shadow-lg max-w-full h-auto w-64 md:w-auto"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                />
+              </div>
+              <div className="md:w-7/10 prose dark:prose-invert max-w-none text-center">
+                <p className="mb-5 text-gray-300 text-lg md:text-xl">
+                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego.
+                </p>
+                <p className="mb-5 text-gray-300 text-base md:text-lg">
+                  Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I focused on leveraging data science and machine learning to solve complex business problems, particularly in logistics and inventory optimization. I have experience in time series forecasting, optimization using MILP, and building predictive models.
+                </p>
+                <p className="mb-5 text-gray-300 text-base md:text-lg">
+                  I also co-founded 'Eye In The Sky', a Deep Learning & Computer Vision startup focused on disaster management using drones during my undergraduate studies at IIT Madras.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -118,7 +123,7 @@ function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +148,7 @@ function Home() {
           >
             <div className="aspect-w-16 aspect-h-9 relative">
               <iframe
-                className="w-full h-96"
+                className="w-full h-[28rem]" 
                 src="https://www.youtube.com/embed/jFIWlEv6ZXo"
                 title="Multi-agent collaboration in Minecraft"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -151,12 +156,12 @@ function Home() {
               ></iframe>
             </div>
             
-            <div className="p-6">
-              <h2 className="text-2xl font-bold text-white mb-2">
+            <div className="p-8 md:p-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Collaborating Action by Action: A Multi-agent LLM Framework for Embodied Reasoning
               </h2>
               
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-300 mb-5 text-base md:text-lg">
                 This research project explores multi-agent collaboration in complex environments like Minecraft. 
                 The framework enables multiple AI agents to reason, plan, and work together to solve complex tasks 
                 that would be difficult for single agents.
