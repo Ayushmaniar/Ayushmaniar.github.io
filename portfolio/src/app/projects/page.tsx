@@ -34,7 +34,7 @@ export default function Projects() {
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">My Projects</h1>
             <div className="w-16 h-1 bg-purple-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Showcasing my research and development work in AI and deep learning.
+              Showcasing research and development work in AI Agents.
             </p>
           </div>
         </motion.section>
@@ -61,7 +61,7 @@ export default function Projects() {
                 ></iframe>
               </div>
               
-              <div className="p-6">
+              <div className="p-6 text-center">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   Collaborating Action by Action: A Multi-agent LLM Framework for Embodied Reasoning
                 </h2>
@@ -72,7 +72,7 @@ export default function Projects() {
                   that would be difficult for single agents.
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 justify-center">
                   <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">
                     AI Agents
                   </span>
@@ -87,7 +87,7 @@ export default function Projects() {
                   </span>
                 </div>
                 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 justify-center">
                   <a
                     href="#"
                     target="_blank"

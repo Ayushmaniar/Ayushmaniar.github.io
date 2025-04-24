@@ -107,7 +107,7 @@ function Home() {
               </div>
               <div className="md:w-7/10 prose dark:prose-invert max-w-none text-center">
                 <p className="mb-5 text-gray-300 text-lg md:text-xl">
-                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego.
+                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego, with a specialization in Artificial Intelligence. I am passionate about AI Agents, particularly in the context of multi-agent systems and Agentic RAG. My other interests include Gaming, Augmented Reality and Bioinformatics.
                 </p>
                 <p className="mb-5 text-gray-300 text-base md:text-lg">
                   Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I focused on leveraging data science and machine learning to solve complex business problems, particularly in logistics and inventory optimization. I have experience in time series forecasting, optimization using MILP, and building predictive models.
@@ -134,7 +134,7 @@ function Home() {
             <h1 className="text-3xl font-bold text-white mb-4">My Projects</h1>
             <div className="w-16 h-1 bg-purple-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-300">
-              Showcasing my research and development work in AI and deep learning.
+              Showcasing research and development work in AI Agents.
             </p>
           </motion.div>
           
