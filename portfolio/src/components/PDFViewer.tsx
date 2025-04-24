@@ -22,11 +22,11 @@ const PDFViewer = ({ pdfUrl }: PDFViewerProps) => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg">
+    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg max-w-10xl mx-auto">
       <div className="flex justify-center">
         <iframe 
           src={`${pdfUrl}#view=FitH`}
-          className="w-full h-[60vw] max-h-[600px] min-h-[350px] sm:h-[500px] md:h-[600px] border-0 rounded-md shadow-md"
+          className="w-full h-[60vw] max-h-[800px] min-h-[500px] sm:h-[600px] md:h-[700px] border-0 rounded-md shadow-md"
           style={{ maxWidth: '100%' }}
           title="Resume PDF Viewer"
         />
