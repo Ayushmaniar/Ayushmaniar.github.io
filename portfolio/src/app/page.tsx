@@ -118,6 +118,47 @@ function Home() {
               </div>
             </div>
           </motion.div>
+
+          {/* Life Trajectory Timeline - Full Width, Fancy */}
+          <div className="w-full mt-16">
+            <h2 className="text-2xl font-bold text-white mb-10 text-center tracking-wide">The Adventure Timeline</h2>
+            <div className="relative flex flex-col items-center w-full">
+              {/* Timeline Line */}
+              <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-purple-500 via-blue-400 to-green-400 opacity-60 z-0" style={{transform: 'translateY(-50%)'}}></div>
+              <div className="flex w-full justify-between items-end z-10 max-w-4xl mx-auto">
+                {/* 2017 - IIT Madras */}
+                <div className="flex flex-col items-center group">
+                  <div className="bg-white rounded-full p-2 shadow-lg mb-2 group-hover:scale-110 transition-transform duration-300 border-2 border-purple-400">
+                    <img src="/bg_removed.png" alt="IIT Madras Logo" className="w-16 h-16 object-contain" />
+                  </div>
+                  <div className="w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
+                  <div className="bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-purple-800 transition-colors duration-300">2017</div>
+                  <div className="text-gray-200 text-base font-medium">IIT Madras</div>
+                </div>
+                {/* 2021 - Walmart / SAMS Club */}
+                <div className="flex flex-col items-center group">
+                  <div className="bg-white rounded-full p-2 shadow-lg mb-2 group-hover:scale-110 transition-transform duration-300 border-2 border-blue-400">
+                    <img src="/Walmart_logo.png" alt="Walmart Logo" className="w-16 h-16 object-contain" />
+                  </div>
+                  <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
+                  <div className="bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-blue-800 transition-colors duration-300">2021</div>
+                  <div className="text-gray-200 text-base font-medium">Walmart / SAMS Club</div>
+                </div>
+                {/* 2025 - UC San Diego */}
+                <div className="flex flex-col items-center group">
+                  <div className="bg-white rounded-full p-2 shadow-lg mb-2 group-hover:scale-110 transition-transform duration-300 border-2 border-green-400">
+                    <img src="/University_of_California_San_Diego.svg.png" alt="UCSD Seal" className="w-16 h-16 object-contain rounded-lg" />
+                  </div>
+                  <div className="w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
+                  <div className="bg-green-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-green-800 transition-colors duration-300">2025</div>
+                  <div className="text-gray-200 text-base font-medium">UC San Diego</div>
+                </div>
+              </div>
+              {/* Decorative floating dots */}
+              <div className="absolute left-10 top-0 w-3 h-3 bg-purple-400 rounded-full opacity-70 animate-bounce"></div>
+              <div className="absolute right-10 bottom-0 w-3 h-3 bg-green-400 rounded-full opacity-70 animate-bounce delay-200"></div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -220,7 +261,7 @@ function Home() {
           </motion.div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );
