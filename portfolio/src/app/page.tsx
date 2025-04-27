@@ -142,7 +142,7 @@ function Home() {
                   </div>
                   <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
                   <div className="bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-blue-800 transition-colors duration-300">2021</div>
-                  <div className="text-gray-200 text-base font-medium">Walmart / SAMS Club</div>
+                  <div className="text-gray-200 text-base font-medium">Walmart</div>
                 </div>
                 {/* 2025 - UC San Diego */}
                 <div className="flex flex-col items-center group">
