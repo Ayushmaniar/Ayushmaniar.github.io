@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PDFViewer from '@/components/PDFViewer';
-import { FaArrowDown, FaLaptopCode, FaDatabase, FaRobot, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaArrowDown, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 function Home() {
   const [heroRef, heroInView] = useInView({
@@ -45,9 +45,20 @@ function Home() {
             initial={{ y: 20 }}
             animate={heroInView ? { y: 0 } : { y: 20 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl sm:text-2xl text-gray-300 mb-8"
+            className="text-xl sm:text-2xl text-gray-300 mb-8 flex flex-col items-center gap-2"
           >
-            MS-CSE Student at UC San Diego | Ex Data Scientist - III at Walmart | IIT Madras 2021 Alumni
+            <span className="flex items-center gap-2 justify-center">
+              <span role="img" aria-label="desktop computer">🖥️</span>
+              MS-CSE Student at UC San Diego
+            </span>
+            <span className="flex items-center gap-2 justify-center">
+              <span role="img" aria-label="chart">📊</span>
+              Ex Data Scientist - III at Walmart
+            </span>
+            <span className="flex items-center gap-2 justify-center">
+              <span role="img" aria-label="graduation cap">🎓</span>
+              IIT Madras 2021 Alumni
+            </span>
           </motion.p>
           
           <motion.div
@@ -105,58 +116,97 @@ function Home() {
                   viewport={{ once: true }}
                 />
               </div>
-              <div className="md:w-7/10 prose dark:prose-invert max-w-none text-center">
-                <p className="mb-5 text-gray-300 text-lg md:text-xl">
-                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego, with a specialization in Artificial Intelligence. I am passionate about AI Agents, particularly in the context of multi-agent systems and Agentic RAG. My other interests include Gaming, Augmented Reality and Bioinformatics.
+              <div className="md:w-7/10 prose dark:prose-invert max-w-none text-justify">
+                <p className="mb-5 text-gray-300 text-lg md:text-lg">
+                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego, with a specialization in Artificial Intelligence. I am passionate about AI Agents, particularly in the context of Multi-agent systems and Agentic-RAG. My other interests include Gaming, Augmented Reality and Bioinformatics.
                 </p>
-                <p className="mb-5 text-gray-300 text-base md:text-lg">
-                  Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I focused on leveraging data science and machine learning to solve complex business problems, particularly in logistics and inventory optimization. I have experience in time series forecasting, optimization using MILP, and building predictive models.
+                <p className="mb-5 text-gray-300 text-lg md:text-lg">
+                  Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I focused on leveraging Data Science and Machine Learning to solve large scale complex business problems, particularly in logistics and inventory optimization. I have experience in time series forecasting, optimization using MILP, and building predictive models.
                 </p>
-                <p className="mb-5 text-gray-300 text-base md:text-lg">
+                <p className="mb-5 text-gray-300 text-lg md:text-lg">
                   I also co-founded 'Eye In The Sky', a Deep Learning & Computer Vision startup focused on disaster management using drones during my undergraduate studies at IIT Madras.
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Life Trajectory Timeline - Full Width, Fancy */}
+          {/* Life Trajectory Timeline - Modern Vertical & Alternating */}
           <div className="w-full mt-16">
             <h2 className="text-2xl font-bold text-white mb-10 text-center tracking-wide">The Adventure Timeline</h2>
-            <div className="relative flex flex-col items-center w-full">
-              {/* Timeline Line */}
-              <div className="absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-purple-500 via-blue-400 to-green-400 opacity-60 z-0" style={{transform: 'translateY(-50%)'}}></div>
-              <div className="flex w-full justify-between items-end z-10 max-w-4xl mx-auto">
-                {/* 2017 - IIT Madras */}
-                <div className="flex flex-col items-center group">
-                  <div className="bg-white rounded-full p-2 shadow-lg mb-2 group-hover:scale-110 transition-transform duration-300 border-2 border-purple-400">
-                    <img src="/bg_removed.png" alt="IIT Madras Logo" className="w-16 h-16 object-contain" />
+            <div className="relative w-full max-w-2xl mx-auto">
+              {/* Vertical Timeline Line */}
+              <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-purple-500 via-blue-400 to-green-400 opacity-70 z-0" style={{transform: 'translateX(-50%)'}}></div>
+              {/* Timeline Events (Reversed Order) */}
+              <div className="flex flex-col gap-16">
+                {/* UC San Diego (2024–Now) */}
+                <div className="flex items-center w-full relative group">
+                  <div className="w-1/2"></div>
+                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-green-400 border-4 border-white rounded-full z-10 shadow-lg" style={{transform:'translate(-50%,-50%)'}}></div>
+                  <div className="w-1/2 flex justify-start pl-8">
+                    <motion.div initial={{opacity:0, x:40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-left">
+                      <div className="flex flex-col items-start">
+                        <div className="bg-white rounded-full p-2 shadow-lg mb-2 border-2 border-green-400">
+                          <img src="/University_of_California_San_Diego.svg.png" alt="UCSD Seal" className="w-16 h-16 object-contain rounded-lg" />
+                        </div>
+                        <div className="bg-green-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1">2024–Now</div>
+                        <div className="text-gray-200 text-base font-medium">UC San Diego</div>
+                        <div className="text-gray-400 text-sm">MS-CSE, AI Specialization</div>
+                      </div>
+                    </motion.div>
                   </div>
-                  <div className="w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
-                  <div className="bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-purple-800 transition-colors duration-300">2017</div>
-                  <div className="text-gray-200 text-base font-medium">IIT Madras</div>
                 </div>
-                {/* 2021 - Walmart / SAMS Club */}
-                <div className="flex flex-col items-center group">
-                  <div className="bg-white rounded-full p-2 shadow-lg mb-2 group-hover:scale-110 transition-transform duration-300 border-2 border-blue-400">
-                    <img src="/Walmart_logo.png" alt="Walmart Logo" className="w-16 h-16 object-contain" />
+                {/* Walmart (2021-2024) */}
+                <div className="flex items-center w-full relative group">
+                  <div className="w-1/2 flex justify-end pr-8">
+                    <motion.div initial={{opacity:0, x:-40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-right">
+                      <div className="flex flex-col items-end">
+                        <div className="bg-white rounded-full p-2 shadow-lg mb-2 border-2 border-blue-400">
+                          <img src="/Walmart_logo.png" alt="Walmart Logo" className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1">2021–2024</div>
+                        <div className="text-gray-200 text-base font-medium">Walmart Global Tech</div>
+                        <div className="text-gray-400 text-sm">Data Scientist III</div>
+                      </div>
+                    </motion.div>
                   </div>
-                  <div className="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
-                  <div className="bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-blue-800 transition-colors duration-300">2021</div>
-                  <div className="text-gray-200 text-base font-medium">Walmart</div>
+                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-blue-400 border-4 border-white rounded-full z-10 shadow-lg" style={{transform:'translate(-50%,-50%)'}}></div>
+                  <div className="w-1/2"></div>
                 </div>
-                {/* 2025 - UC San Diego */}
-                <div className="flex flex-col items-center group">
-                  <div className="bg-white rounded-full p-2 shadow-lg mb-2 group-hover:scale-110 transition-transform duration-300 border-2 border-green-400">
-                    <img src="/University_of_California_San_Diego.svg.png" alt="UCSD Seal" className="w-16 h-16 object-contain rounded-lg" />
+                {/* Hyperverge Internship (2019) */}
+                <div className="flex items-center w-full relative group">
+                  <div className="w-1/2"></div>
+                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-yellow-400 border-4 border-white rounded-full z-10 shadow-lg" style={{transform:'translate(-50%,-50%)'}}></div>
+                  <div className="w-1/2 flex justify-start pl-8">
+                    <motion.div initial={{opacity:0, x:40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-left">
+                      <div className="flex flex-col items-start">
+                        <div className="bg-white rounded-full p-1 shadow-lg mb-2 border-2 border-yellow-400">
+                          <img src="/hyperverge-logo.webp" alt="Hyperverge Logo" className="w-10 h-10 object-contain" />
+                        </div>
+                        <div className="bg-yellow-700 text-white px-3 py-1 rounded shadow text-sm font-semibold mb-1">2019</div>
+                        <div className="text-gray-300 text-sm">Intern, Hyperverge</div>
+                      </div>
+                    </motion.div>
                   </div>
-                  <div className="w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-md mb-2 animate-pulse"></div>
-                  <div className="bg-green-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1 group-hover:bg-green-800 transition-colors duration-300">2025</div>
-                  <div className="text-gray-200 text-base font-medium">UC San Diego</div>
+                </div>
+                {/* IIT Madras (2017-2021) */}
+                <div className="flex items-center w-full relative group">
+                  <div className="w-1/2 flex justify-end pr-8">
+                    <motion.div initial={{opacity:0, x:-40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-right">
+                      <div className="flex flex-col items-end">
+                        <div className="bg-white rounded-full p-2 shadow-lg mb-2 border-2 border-purple-400">
+                          <img src="/bg_removed.png" alt="IIT Madras Logo" className="w-16 h-16 object-contain" />
+                        </div>
+                        <div className="bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1">2017–2021</div>
+                        <div className="text-gray-200 text-base font-medium">IIT Madras</div>
+                        <div className="text-gray-400 text-sm">B.Tech, Electrical Engineering</div>
+                      </div>
+                    </motion.div>
+                  </div>
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-purple-500 border-4 border-white rounded-full z-10 shadow-lg" style={{transform:'translate(-50%,-50%)'}}></div>
+                  <div className="w-1/2"></div>
                 </div>
               </div>
-              {/* Decorative floating dots */}
-              <div className="absolute left-10 top-0 w-3 h-3 bg-purple-400 rounded-full opacity-70 animate-bounce"></div>
-              <div className="absolute right-10 bottom-0 w-3 h-3 bg-green-400 rounded-full opacity-70 animate-bounce delay-200"></div>
             </div>
           </div>
         </div>
