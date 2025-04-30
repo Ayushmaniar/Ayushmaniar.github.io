@@ -275,7 +275,7 @@ function Home() {
               
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="#"
+                  href="https://github.com/kolbytn/mindcraft"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-purple-400 hover:underline"
@@ -283,7 +283,7 @@ function Home() {
                   <FaGithub className="mr-1" /> GitHub Repository
                 </a>
                 <a
-                  href="#"
+                  href="https://arxiv.org/abs/2504.17950"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center text-purple-400 hover:underline"

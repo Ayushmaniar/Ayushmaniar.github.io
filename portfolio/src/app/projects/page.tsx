@@ -89,7 +89,7 @@ export default function Projects() {
                 
                 <div className="flex flex-wrap gap-4 justify-center">
                   <a
-                    href="#"
+                    href="https://github.com/kolbytn/mindcraft"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-purple-600 dark:text-purple-400 hover:underline"
@@ -97,7 +97,7 @@ export default function Projects() {
                     <FaGithub className="mr-1" /> GitHub Repository
                   </a>
                   <a
-                    href="#"
+                    href="https://arxiv.org/abs/2504.17950"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-purple-600 dark:text-purple-400 hover:underline"
