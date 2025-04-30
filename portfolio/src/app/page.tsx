@@ -146,7 +146,7 @@ function Home() {
                     <motion.div initial={{opacity:0, x:40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-left">
                       <div className="flex flex-col items-start">
                         <div className="bg-white rounded-full p-2 shadow-lg mb-2 border-2 border-green-400">
-                          <img src="/University_of_California_San_Diego.svg.png" alt="UCSD Seal" className="w-16 h-16 object-contain rounded-lg" />
+                          <img src="/University_of_California_San_Diego.avif" alt="UCSD Seal" className="w-16 h-16 object-contain rounded-lg" />
                         </div>
                         <div className="bg-green-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1">2024–Now</div>
                         <div className="text-gray-200 text-base font-medium">UC San Diego</div>
@@ -194,7 +194,7 @@ function Home() {
                     <motion.div initial={{opacity:0, x:-40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-right">
                       <div className="flex flex-col items-end">
                         <div className="bg-white rounded-full p-2 shadow-lg mb-2 border-2 border-purple-400">
-                          <img src="/bg_removed.png" alt="IIT Madras Logo" className="w-16 h-16 object-contain" />
+                          <img src="/bg_removed.avif" alt="IIT Madras Logo" className="w-16 h-16 object-contain" />
                         </div>
                         <div className="bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1">2017–2021</div>
                         <div className="text-gray-200 text-base font-medium">IIT Madras</div>
