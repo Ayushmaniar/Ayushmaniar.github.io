@@ -16,8 +16,8 @@ export default function Contact() {
     {
       icon: <FaEnvelope className="text-3xl text-purple-500" />,
       title: "Email",
-      description: "ayushmaniar@ucsd.edu",
-      link: "mailto:ayushmaniar@ucsd.edu",
+      description: "ayushmaniar70@gmail.com",
+      link: "mailto:ayushmaniar70@gmail.com",
     },
     {
       icon: <FaLinkedin className="text-3xl text-purple-500" />,
