@@ -229,7 +229,7 @@ function Home() {
             </p>
           </motion.div>
           
-          {/* Featured Project */}
+          {/* Featured Project - Minecraft */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -293,6 +293,126 @@ function Home() {
               </div>
             </div>
           </motion.div>
+
+          {/* Featured Project - PowerPoint MCP Server */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="bg-gray-800 rounded-lg shadow-md overflow-hidden mb-10"
+          >
+            <div className="aspect-w-16 aspect-h-9 relative">
+              <iframe
+                className="w-full h-[28rem]" 
+                src="https://www.youtube.com/embed/5p24Vr36py8"
+                title="PowerPoint MCP Server - Fourier Transform Presentation Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            
+            <div className="p-8 md:p-10">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Open Source PowerPoint MCP Server
+              </h2>
+              
+              <p className="text-gray-300 mb-5 text-base md:text-lg">
+                A powerful Model Context Protocol (MCP) server for PowerPoint automation that enables AI assistants 
+                like Claude to create, read, and edit presentations in real-time. Features template-first design, 
+                bidirectional COM automation, LaTeX equation rendering, HTML-style formatting, and controllable animations. 
+                Unlike write-only libraries, this provides true real-time editing capabilities with multimodal slide analysis.
+              </p>
+              
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold text-white mb-3">Key Features</h3>
+                <ul className="text-left text-gray-300 space-y-2">
+                  <li>✨ <strong>Template-first design</strong> - Works seamlessly with corporate templates</li>
+                  <li>🔄 <strong>Bidirectional & real-time</strong> - Read and edit existing presentations without closing them</li>
+                  <li>📊 <strong>Multimodal slide analysis</strong> - Visual screenshots + detailed text/chart/table extraction</li>
+                  <li>🔬 <strong>LaTeX rendering</strong> - Built-in support for scientific equations and formulas</li>
+                  <li>🎨 <strong>HTML-style formatting</strong> - Bold, italic, colors, bullet points that actually work</li>
+                  <li>🎬 <strong>Animations</strong> - Controllable PowerPoint animations with progressive disclosure</li>
+                  <li>⚡ <strong>One-line install</strong> - <code className="text-sm bg-gray-700 px-1 rounded">claude mcp add powerpoint -- uvx powerpoint-mcp</code></li>
+                </ul>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold text-white mb-3">Real Workflows</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-bold text-white">Research + Create</h4>
+                    <p className="text-sm text-gray-300">Researches topics and builds decks with citations automatically.</p>
+                  </div>
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-bold text-white">Data Analysis + Visualization</h4>
+                    <p className="text-sm text-gray-300">Analyzes datasets and creates free-form Python plots directly on slides.</p>
+                  </div>
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-bold text-white">Codebase Documentation</h4>
+                    <p className="text-sm text-gray-300">Reads local files to understand structure and generates architecture presentations.</p>
+                  </div>
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-bold text-white">Template-Driven Decks</h4>
+                    <p className="text-sm text-gray-300">Populates corporate templates with data from CSVs or other sources.</p>
+                  </div>
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-bold text-white">Academic LaTeX Heavy</h4>
+                    <p className="text-sm text-gray-300">Creates lecture slides with complex mathematical equations rendered via LaTeX.</p>
+                  </div>
+                  <div className="bg-gray-700 p-4 rounded-lg">
+                    <h4 className="font-bold text-white">Interactive Learning</h4>
+                    <p className="text-sm text-gray-300">Turns presentations into interactive tutors that explain slides and quiz users.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex flex-wrap gap-2 mb-6">
+                <span className="px-3 py-1 bg-purple-900 text-purple-200 rounded-full text-sm">
+                  MCP Server
+                </span>
+                <span className="px-3 py-1 bg-blue-900 text-blue-200 rounded-full text-sm">
+                  AI Automation
+                </span>
+                <span className="px-3 py-1 bg-green-900 text-green-200 rounded-full text-sm">
+                  PowerPoint
+                </span>
+                <span className="px-3 py-1 bg-yellow-900 text-yellow-200 rounded-full text-sm">
+                  Python
+                </span>
+                 <span className="px-3 py-1 bg-red-900 text-red-200 rounded-full text-sm">
+                   COM Automation
+                 </span>
+              </div>
+              
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://github.com/Ayushmaniar/powerpoint-mcp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-purple-400 hover:underline"
+                >
+                  <FaGithub className="mr-1" /> GitHub Repository
+                </a>
+                <a
+                  href="https://youtu.be/5p24Vr36py8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-purple-400 hover:underline"
+                >
+                  <FaExternalLinkAlt className="mr-1" /> Demo Video
+                </a>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* More Projects Coming Soon */}
+          <div className="text-center py-8">
+            <h2 className="text-2xl font-bold text-white mb-2">More Projects Coming Soon</h2>
+            <p className="text-gray-400">
+              I'm working on adding more of my projects here. Check back soon!
+            </p>
+          </div>
         </div>
       </section>
       
