@@ -267,14 +267,27 @@ function Home() {
             </div>
             
             <div className="p-8 md:p-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                Collaborating Action by Action: A Multi-agent LLM Framework for Embodied Reasoning
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-white">
+                  Collaborating Action by Action: A Multi-agent LLM Framework for Embodied Reasoning
+                </h2>
+                <span className="px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full text-sm font-semibold whitespace-nowrap">
+                  NeurIPS 2025
+                </span>
+              </div>
+              
+              <p className="text-gray-300 mb-4 text-base md:text-lg">
+                This research project, conducted as part of my MS Research under Prof. Lianhui Qin at UC San Diego, 
+                explores multi-agent collaboration in complex environments like Minecraft. The work has been accepted 
+                at NeurIPS 2025.
+              </p>
               
               <p className="text-gray-300 mb-5 text-base md:text-lg">
-                This research project explores multi-agent collaboration in complex environments like Minecraft. 
-                The framework enables multiple AI agents to reason, plan, and work together to solve complex tasks 
-                that would be difficult for single agents.
+                The framework enables multiple AI agents to reason, plan, and work together through peer-peer collaboration 
+                tasks that test different aspects of collaborative reasoning such as sharing resources, skill sets, expertise, 
+                and information. We leveraged the efficient function calling abilities of LLMs to ground the agents in the 
+                world of Minecraft by creating custom tools, and conducted comparative evaluations of contemporary language 
+                models, highlighting success rates across tasks and providing insights into multi-agent collaboration efficiencies.
               </p>
               
               <div className="flex flex-wrap gap-2 mb-4">
@@ -395,9 +408,6 @@ function Home() {
                 </span>
                 <span className="px-3 py-1 bg-green-900 text-green-200 rounded-full text-sm">
                   PowerPoint
-                </span>
-                <span className="px-3 py-1 bg-yellow-900 text-yellow-200 rounded-full text-sm">
-                  Python
                 </span>
                  <span className="px-3 py-1 bg-red-900 text-red-200 rounded-full text-sm">
                    COM Automation
