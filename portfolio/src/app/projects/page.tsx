@@ -110,8 +110,93 @@ export default function Projects() {
           </div>
         </section>
         
+        {/* PowerPoint MCP Server Project */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={projectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+            >
+              <div className="aspect-w-16 aspect-h-9 relative">
+                <iframe
+                  className="w-full h-96"
+                  src="https://www.youtube.com/embed/5p24Vr36py8"
+                  title="PowerPoint MCP Server - Fourier Transform Presentation Demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              
+              <div className="p-6 text-center">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  Open Source PowerPoint MCP Server
+                </h2>
+                
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  A powerful Model Context Protocol (MCP) server for PowerPoint automation that enables AI assistants 
+                  like Claude to create, read, and edit presentations in real-time. Features template-first design, 
+                  bidirectional COM automation, LaTeX equation rendering, HTML-style formatting, and controllable animations. 
+                  Unlike write-only libraries, this provides true real-time editing capabilities with multimodal slide analysis.
+                </p>
+                
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Key Features</h3>
+                  <ul className="text-left text-gray-700 dark:text-gray-300 space-y-2 max-w-2xl mx-auto">
+                    <li>✨ <strong>Template-first design</strong> - Works seamlessly with corporate templates</li>
+                    <li>🔄 <strong>Bidirectional & real-time</strong> - Read and edit existing presentations without closing them</li>
+                    <li>📊 <strong>Multimodal slide analysis</strong> - Visual screenshots + detailed text/chart/table extraction</li>
+                    <li>🔬 <strong>LaTeX rendering</strong> - Built-in support for scientific equations and formulas</li>
+                    <li>🎨 <strong>HTML-style formatting</strong> - Bold, italic, colors, bullet points that actually work</li>
+                    <li>🎬 <strong>Animations</strong> - Controllable PowerPoint animations with progressive disclosure</li>
+                    <li>⚡ <strong>One-line install</strong> - No subscriptions, no monthly fees, fully open source</li>
+                  </ul>
+                </div>
+                
+                <div className="flex flex-wrap gap-2 mb-4 justify-center">
+                  <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">
+                    MCP Server
+                  </span>
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">
+                    AI Automation
+                  </span>
+                  <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">
+                    PowerPoint
+                  </span>
+                  <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">
+                    Python
+                  </span>
+                  <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">
+                    COM Automation
+                  </span>
+                </div>
+                
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <a
+                    href="https://github.com/Ayushmaniar/powerpoint-mcp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-purple-600 dark:text-purple-400 hover:underline"
+                  >
+                    <FaGithub className="mr-1" /> GitHub Repository
+                  </a>
+                  <a
+                    href="https://youtu.be/5p24Vr36py8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-purple-600 dark:text-purple-400 hover:underline"
+                  >
+                    <FaExternalLinkAlt className="mr-1" /> Demo Video
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+        
         {/* More Projects Placeholder */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 text-center">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-800 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">More Projects Coming Soon</h2>
             <p className="text-gray-700 dark:text-gray-300">
