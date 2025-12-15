@@ -118,13 +118,13 @@ function Home() {
               </div>
               <div className="md:w-7/10 prose dark:prose-invert max-w-none text-justify">
                 <p className="mb-5 text-gray-300 text-lg md:text-lg">
-                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego, with a specialization in Artificial Intelligence. I am passionate about AI Agents, particularly in the context of Multi-agent systems and Agentic-RAG. My other interests include Gaming, Augmented Reality and Bioinformatics.
+                  Hi, I'm Ayush Maniar. Currently, I'm pursuing a Master of Science in Computer Science (MSCS) at UC San Diego, with a specialization in Artificial Intelligence. I am passionate about AI Agents, particularly in the context of Multi-agent systems and Agentic-RAG. My research focuses on multi-agent collaboration and reasoning, with work accepted at NeurIPS 2025. I'm also the creator of an open-source PowerPoint MCP server that enables AI assistants to automate presentation creation with LaTeX rendering and real-time editing capabilities.
                 </p>
                 <p className="mb-5 text-gray-300 text-lg md:text-lg">
-                  Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I focused on leveraging Data Science and Machine Learning to solve large scale complex business problems, particularly in logistics and inventory optimization. I have experience in time series forecasting, optimization using MILP, and building predictive models.
+                  Recently, I completed a Research Scientist Intern - Generative AI position at Riot Games, where I developed AI creative story writing engines using dual-agent architectures, built story-to-code pipelines for game quest systems, and created multimodal AI comic book generators. Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I led multiple high-impact projects creating over $120M in business value. My work included developing patented time series algorithms for transit time prediction, delivery delay prediction models, and optimization solutions using Mixed Integer Linear Programming.
                 </p>
                 <p className="mb-5 text-gray-300 text-lg md:text-lg">
-                  I also co-founded 'Eye In The Sky', a Deep Learning & Computer Vision startup focused on disaster management using drones during my undergraduate studies at IIT Madras.
+                  During my undergraduate studies at IIT Madras, I co-founded 'Eye In The Sky', a Deep Learning & Computer Vision startup focused on disaster management using drones. The startup raised INR 19.5 Lakhs in funding, won the Microsoft Codefundo++ 2019 challenge (among 2000+ teams), and received the International Microsoft 'AI For Earth' Grant. My other interests include Gaming, Augmented Reality, and Bioinformatics.
                 </p>
               </div>
             </div>
@@ -138,6 +138,25 @@ function Home() {
               <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-purple-500 via-blue-400 to-green-400 opacity-70 z-0" style={{transform: 'translateX(-50%)'}}></div>
               {/* Timeline Events (Reversed Order) */}
               <div className="flex flex-col gap-16">
+                 {/* Riot Games Internship (2025) */}
+                <div className="flex items-center w-full relative group">
+                  <div className="w-1/2 flex justify-end pr-8">
+                    <motion.div initial={{opacity:0, x:-40}} whileInView={{opacity:1, x:0}} transition={{duration:0.6}} viewport={{once:true}} className="text-right">
+                      <div className="flex flex-col items-end">
+                        <div className="bg-white rounded-full p-2 shadow-lg mb-2 border-2 border-red-500 overflow-hidden">
+                          <img src="/riot-games.jpg" alt="Riot Games Logo" className="w-16 h-16 object-contain rounded-full" />
+                        </div>
+                        <div className="bg-red-700 text-white px-4 py-2 rounded-lg shadow-md font-semibold text-lg mb-1">2025 Summer</div>
+                        <div className="text-gray-200 text-base font-medium">Riot Games</div>
+                        <div className="text-gray-400 text-sm">Research Scientist Intern - Generative AI</div>
+                      </div>
+                    </motion.div>
+                  </div>
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-red-500 border-4 border-white rounded-full z-10 shadow-lg" style={{transform:'translate(-50%,-50%)'}}></div>
+                  <div className="w-1/2"></div>
+                </div>
+
                 {/* UC San Diego (2024–Now) */}
                 <div className="flex items-center w-full relative group">
                   <div className="w-1/2"></div>
