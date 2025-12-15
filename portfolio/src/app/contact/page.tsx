@@ -23,7 +23,7 @@ export default function Contact() {
       icon: <FaLinkedin className="text-3xl text-purple-500" />,
       title: "LinkedIn",
       description: "Connect with me on LinkedIn",
-      link: "https://linkedin.com/in/ayush-maniar",
+      link: "https://www.linkedin.com/in/ayush-maniar",
     },
     {
       icon: <FaGithub className="text-3xl text-purple-500" />,
@@ -35,7 +35,7 @@ export default function Contact() {
       icon: <FaTwitter className="text-3xl text-purple-500" />,
       title: "Twitter",
       description: "Follow me for updates",
-      link: "https://twitter.com/ayushmaniar",
+      link: "https://x.com/AyushManiar",
     },
   ];
 

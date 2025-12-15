@@ -25,7 +25,7 @@ export default function Footer() {
               <FaGithub size={24} />
             </a>
             <a 
-              href="https://linkedin.com/in/ayush-maniar" 
+              href="https://www.linkedin.com/in/ayush-maniar" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 transition-colors duration-300"
@@ -33,7 +33,7 @@ export default function Footer() {
               <FaLinkedin size={24} />
             </a>
             <a 
-              href="https://twitter.com" 
+              href="https://x.com/AyushManiar" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-purple-500 dark:text-gray-400 dark:hover:text-purple-400 transition-colors duration-300"
