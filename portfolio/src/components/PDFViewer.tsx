@@ -1,45 +1,93 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+
+// Set up the PDF worker
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 interface PDFViewerProps {
   pdfUrl: string;
 }
 
 const PDFViewer = ({ pdfUrl }: PDFViewerProps) => {
+  const [numPages, setNumPages] = useState<number | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     setIsClient(true);
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
+    setNumPages(numPages);
+  }
+
+  // Calculate scaled width based on brutalist constraints
+  const getPageWidth = () => {
+    if (!isClient) return 600;
+    const padding = windowWidth < 768 ? 40 : 80;
+    const maxWidth = 800;
+    return Math.min(windowWidth - padding, maxWidth);
+  };
 
   if (!isClient) {
     return (
-      <div className="flex justify-center items-center p-10">
-        <div className="w-full h-[600px] bg-gray-200 dark:bg-gray-700 animate-pulse rounded-lg"></div>
+      <div className="flex justify-center items-center p-4">
+        <div className="w-full max-w-[800px] h-[800px] bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] animate-pulse"></div>
       </div>
     );
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow-lg max-w-10xl mx-auto">
-      <div className="flex justify-center">
-        <iframe 
-          src={`${pdfUrl}#view=FitH`}
-          className="w-full h-[60vw] max-h-[800px] min-h-[500px] sm:h-[600px] md:h-[700px] border-0 rounded-md shadow-md"
-          style={{ maxWidth: '100%' }}
-          title="Resume PDF Viewer"
-        />
-      </div>
-      
-      <div className="text-center mt-4">
-        <a 
-          href={pdfUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="px-6 py-2 rounded-md bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300 inline-block"
+    <div className="w-full flex flex-col items-center gap-8">
+      <div className="bg-white p-4 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] overflow-x-auto flex justify-center w-full max-w-[850px]">
+        <Document
+          file={pdfUrl}
+          onLoadSuccess={onDocumentLoadSuccess}
+          loading={
+            <div className="w-full h-[800px] flex items-center justify-center text-black font-black uppercase">
+              Loading Resume...
+            </div>
+          }
+          error={
+            <div className="w-full h-[800px] flex items-center justify-center text-black font-black uppercase border-4 border-black">
+              Failed to load PDF.
+            </div>
+          }
         >
-          Download Resume
+          {Array.from(new Array(numPages || 0), (el, index) => (
+            <div key={`page_${index + 1}`} className="mb-6 last:mb-0 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all">
+              <Page
+                pageNumber={index + 1}
+                width={getPageWidth()}
+                renderTextLayer={true}
+                renderAnnotationLayer={true}
+                className="bg-white"
+              />
+            </div>
+          ))}
+        </Document>
+      </div>
+
+      <div className="text-center">
+        <a
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-8 py-3 border-4 border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all duration-300 flex items-center font-black uppercase shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0_0_rgba(255,255,255,1)] active:translate-x-2 active:translate-y-2 active:shadow-none"
+        >
+          Download PDF
         </a>
       </div>
     </div>

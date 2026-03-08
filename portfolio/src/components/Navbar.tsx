@@ -10,7 +10,7 @@ const navLinks = [
   { name: 'About', path: '/#about' },
   { name: 'Projects', path: '/#projects' },
   { name: 'Resume', path: '/#resume' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Contact', path: '/#contact' },
 ];
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  
+
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     // Always navigate to homepage for hash links
     if (path.startsWith('/#')) {
@@ -48,11 +48,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full backdrop-blur-md bg-gray-900/75 z-50 transition-all duration-300">
+    <nav className="fixed w-full bg-white dark:bg-black border-b-4 border-black dark:border-white z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-purple-400">
+            <Link href="/" className="text-2xl font-black uppercase tracking-tighter text-black dark:text-white border-2 border-black dark:border-white px-2 py-1">
               Ayush Maniar
             </Link>
           </div>
@@ -64,7 +64,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 transition-colors duration-300"
+                  className="px-3 py-2 border-2 border-transparent hover:border-black hover:dark:border-white text-sm font-black uppercase text-black dark:text-white transition-colors duration-300"
                   onClick={(e) => handleScrollTo(e, link.path)}
                 >
                   {link.name}
@@ -77,7 +77,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-md text-gray-300 hover:bg-gray-700 transition-colors duration-300"
+              className="p-2 border-4 border-black dark:border-white text-black dark:text-white transition-colors duration-300"
               aria-label="Toggle Menu"
             >
               {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
@@ -94,12 +94,12 @@ export default function Navbar() {
           transition={{ duration: 0.3 }}
           className="md:hidden"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-black border-b-4 border-black dark:border-white">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.path}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 transition-colors duration-300"
+                className="block px-3 py-2 border-2 border-transparent hover:border-black hover:dark:border-white text-base font-black uppercase text-black dark:text-white transition-colors duration-300"
                 onClick={(e) => {
                   handleScrollTo(e, link.path);
                 }}
