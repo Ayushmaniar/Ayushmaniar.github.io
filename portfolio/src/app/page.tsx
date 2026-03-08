@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import PDFViewer from '@/components/PDFViewer';
 import YouTubeFacade from '@/components/YouTubeFacade';
 import { projects } from '@/data/projects';
+import { aboutData } from '@/data/about';
 import { FaArrowDown, FaGithub, FaExternalLinkAlt, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 
 function Home() {
@@ -170,15 +171,12 @@ function Home() {
                 />
               </div>
               <div className="md:w-7/10 prose dark:prose-invert max-w-none text-justify">
-                <p className="mb-5 text-black dark:text-white font-medium text-lg md:text-lg">
-                  Hi, I&apos;m Ayush Maniar. Currently, I&apos;m pursuing a Master of Science in Computer Science (MSCS) at UC San Diego, with a specialization in Artificial Intelligence. I am passionate about AI Agents, particularly in the context of Multi-agent systems and Agentic-RAG. My research focuses on multi-agent collaboration and reasoning, with work accepted at NeurIPS 2025. I&apos;m also the creator of an open-source PowerPoint MCP server that enables AI assistants to automate presentation creation with LaTeX rendering and real-time editing capabilities.
-                </p>
-                <p className="mb-5 text-black dark:text-white font-medium text-lg md:text-lg">
-                  Recently, I completed a Research Scientist Intern - Generative AI position at Riot Games, where I developed AI creative story writing engines using dual-agent architectures, built story-to-code pipelines for game quest systems, and created multimodal AI comic book generators. Before joining UCSD, I worked as a Data Scientist III at Walmart Global Tech India (SAMS Club), where I led multiple high-impact projects creating over $120M in business value. My work included developing patented time series algorithms for transit time prediction, delivery delay prediction models, and optimization solutions using Mixed Integer Linear Programming.
-                </p>
-                <p className="mb-5 text-black dark:text-white font-medium text-lg md:text-lg">
-                  During my undergraduate studies at IIT Madras, I co-founded &apos;Eye In The Sky&apos;, a Deep Learning & Computer Vision startup focused on disaster management using drones. The startup raised INR 19.5 Lakhs in funding, won the Microsoft Codefundo++ 2019 challenge (among 2000+ teams), and received the International Microsoft &apos;AI For Earth&apos; Grant. My other interests include Gaming, Augmented Reality, and Bioinformatics.
-                </p>
+                {aboutData.paragraphs.map((para, i) => (
+                  <p key={i} className="mb-5 text-black dark:text-white font-medium text-lg md:text-lg">
+                    {para}
+                  </p>
+                ))}
+              
               </div>
             </div>
           </motion.div>
@@ -390,13 +388,7 @@ function Home() {
             </motion.div>
           ))}
 
-          {/* More Projects Coming Soon */}
-          <div className="text-center py-8 mt-10 border-4 border-black dark:border-white p-8 shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)]">
-            <h2 className="text-2xl font-black uppercase mb-2">More Projects Coming Soon</h2>
-            <p className="text-black dark:text-white font-bold">
-              I&apos;m working on adding more of my projects here. Check back soon!
-            </p>
-          </div>
+
         </div>
       </section>
 
