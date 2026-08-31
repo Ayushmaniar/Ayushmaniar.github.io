@@ -62,14 +62,6 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  html,
-  a,
-  button {
-    cursor: none;
-  }
-}
-
 :focus-visible {
   outline: 3px solid currentColor;
   outline-offset: 4px;

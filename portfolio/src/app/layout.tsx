@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
-import CustomCursor from '@/components/CustomCursor';
 import ThemeProvider from '@/components/ThemeProvider';
 import './globals.css';
 
@@ -36,7 +35,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-white dark:bg-black text-black dark:text-white transition-colors duration-300 min-h-screen relative`}>
         <ThemeProvider>
-          <CustomCursor />
           {children}
         </ThemeProvider>
       </body>

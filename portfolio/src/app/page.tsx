@@ -15,12 +15,6 @@ const contactItems = [
   { icon: FaTwitter, title: 'X / Twitter', description: 'Follow research and project updates', link: 'https://x.com/AyushManiar' },
 ];
 
-const impactItems = [
-  ['NeurIPS 2025', 'Multi-agent collaboration research'],
-  ['$120M+', 'Business value created at Walmart'],
-  ['Riot Games', 'Generative AI research internship'],
-];
-
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -46,14 +40,6 @@ export default function Home() {
             <p className="text-xl sm:text-2xl font-bold max-w-3xl mx-auto mb-8">
               I build multi-agent AI systems, creative tools, and research that moves from idea to impact.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left mb-8">
-              {impactItems.map(([label, detail]) => (
-                <div key={label} className="border-2 border-black dark:border-white p-3">
-                  <p className="font-black uppercase">{label}</p>
-                  <p className="font-bold text-sm">{detail}</p>
-                </div>
-              ))}
-            </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="#projects" className="px-8 py-3 border-4 border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all flex items-center font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none">Explore Projects</a>
               <a href="#resume" className="px-8 py-3 border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all flex items-center font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none">View Resume <FaArrowDown className="ml-2" /></a>

@@ -34,7 +34,7 @@ Make the portfolio feel polished and credible across desktop and mobile while im
 - [x] Split the home page into focused section components.
 - [x] Keep static content server-rendered; isolate interactive behavior to client components.
 - [x] Replace raw HTML feature strings with structured JSX data.
-- [x] Sharpen hero positioning and expose selected impact metrics.
+- [x] Sharpen hero positioning with a focused research-and-builder message.
 
 ### 4. Resume and performance
 
@@ -60,3 +60,4 @@ Make the portfolio feel polished and credible across desktop and mobile while im
 - 2026-08-31: Audit completed; implementation started.
 - 2026-08-31: Responsive, accessibility, metadata, content, and performance improvements implemented. Final checks passed: lint, static build, mobile overflow/navigation/theme controls, resume preview, and zero fresh browser warnings.
 - 2026-08-31: Feature implementation committed as `ffe13e1`.
+- 2026-08-31: Removed the hero impact-card strip and custom cursor in favor of a simpler first viewport and the standard system cursor.
