@@ -10,6 +10,12 @@ export interface ProjectLink {
     iconType: 'github' | 'paper' | 'demo';
 }
 
+export interface ProjectFeature {
+    title: string;
+    description: string;
+    code?: string;
+}
+
 export interface Project {
     id: string;
     title: string;
@@ -18,7 +24,7 @@ export interface Project {
     paragraphs: string[];
     tags: string[];
     links: ProjectLink[];
-    features?: string[];
+    features?: ProjectFeature[];
     workflows?: RealWorkflow[];
 }
 
@@ -66,13 +72,13 @@ export const projects: Project[] = [
             "COM Automation"
         ],
         features: [
-            "✨ **Template-first design** - Works seamlessly with corporate templates",
-            "🔄 **Bidirectional & real-time** - Read and edit existing presentations without closing them",
-            "📊 **Multimodal slide analysis** - Visual screenshots + detailed text/chart/table extraction",
-            "🔬 **LaTeX rendering** - Built-in support for scientific equations and formulas",
-            "🎨 **HTML-style formatting** - Bold, italic, colors, bullet points that actually work",
-            "🎬 **Animations** - Controllable PowerPoint animations with progressive disclosure",
-            "⚡ **One-line install** - `<code className=\"text-sm bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white px-2 py-1 uppercase shadow-[2px_2px_0_0_rgba(0,0,0,1)]\">claude mcp add powerpoint -- uvx powerpoint-mcp</code>`"
+            { title: 'Template-first design', description: 'Works seamlessly with corporate templates.' },
+            { title: 'Bidirectional & real-time', description: 'Read and edit existing presentations without closing them.' },
+            { title: 'Multimodal slide analysis', description: 'Visual screenshots plus detailed text, chart, and table extraction.' },
+            { title: 'LaTeX rendering', description: 'Built-in support for scientific equations and formulas.' },
+            { title: 'HTML-style formatting', description: 'Bold, italic, colors, and bullets that render reliably.' },
+            { title: 'Animations', description: 'Controllable PowerPoint animations with progressive disclosure.' },
+            { title: 'One-line install', description: 'Install the server with:', code: 'claude mcp add powerpoint -- uvx powerpoint-mcp' }
         ],
         workflows: [
             {

@@ -39,7 +39,7 @@ export default function YouTubeFacade({ youtubeId, title }: YouTubeFacadeProps) 
     if (isPlaying) {
         return (
             <iframe
-                className="w-full h-[28rem]"
+                className="w-full aspect-video"
                 src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
                 title={title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -51,7 +51,7 @@ export default function YouTubeFacade({ youtubeId, title }: YouTubeFacadeProps) 
     return (
         <button
             onClick={() => setIsPlaying(true)}
-            className="w-full h-[28rem] relative group bg-black flex items-center justify-center overflow-hidden cursor-none border-none p-0"
+            className="w-full aspect-video relative group bg-black flex items-center justify-center overflow-hidden cursor-none border-none p-0"
             aria-label={`Play ${title}`}
         >
             {/* eslint-disable-next-line @next/next/no-img-element */}

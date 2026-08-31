@@ -18,7 +18,7 @@ export default function CustomCursor() {
         const moveCursor = (e: MouseEvent) => {
             cursorX.set(e.clientX);
             cursorY.set(e.clientY);
-            if (!isVisible) setIsVisible(true);
+            setIsVisible(true);
         };
 
         const handleMouseLeave = () => setIsVisible(false);
@@ -39,12 +39,7 @@ export default function CustomCursor() {
             window.removeEventListener('mousedown', handleMouseDown);
             window.removeEventListener('mouseup', handleMouseUp);
         };
-    }, [cursorX, cursorY, isVisible]);
-
-    // Hide on mobile devices
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-        return null;
-    }
+    }, [cursorX, cursorY]);
 
     return (
         <motion.div

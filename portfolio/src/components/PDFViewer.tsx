@@ -5,8 +5,10 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 
-// Set up the PDF worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
 
 interface PDFViewerProps {
   pdfUrl: string;
@@ -33,11 +35,10 @@ const PDFViewer = ({ pdfUrl }: PDFViewerProps) => {
     setNumPages(numPages);
   }
 
-  // Calculate scaled width based on brutalist constraints
   const getPageWidth = () => {
     if (!isClient) return 600;
-    const padding = windowWidth < 768 ? 40 : 80;
-    const maxWidth = 800;
+    const padding = windowWidth < 768 ? 48 : 96;
+    const maxWidth = 760;
     return Math.min(windowWidth - padding, maxWidth);
   };
 
@@ -51,7 +52,7 @@ const PDFViewer = ({ pdfUrl }: PDFViewerProps) => {
 
   return (
     <div className="w-full flex flex-col items-center gap-8">
-      <div className="bg-white p-4 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] overflow-x-auto flex justify-center w-full max-w-[850px]">
+      <div className="bg-white p-3 sm:p-4 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] overflow-x-hidden flex justify-center w-full max-w-[810px]">
         <Document
           file={pdfUrl}
           onLoadSuccess={onDocumentLoadSuccess}

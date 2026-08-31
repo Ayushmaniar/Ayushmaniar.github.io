@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi';
+import { useTheme } from 'next-themes';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -16,6 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
 
   // When mounted on client, show UI
   useEffect(() => {
@@ -41,9 +43,10 @@ export default function Navbar() {
       const id = path.substring(2);
       const element = document.getElementById(id);
       if (element) {
+        window.history.pushState(null, '', path);
         element.scrollIntoView({ behavior: 'smooth' });
-        if (isOpen) setIsOpen(false);
       }
+      setIsOpen(false);
     }
   };
 
@@ -70,6 +73,14 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+                className="p-2 border-2 border-transparent hover:border-black hover:dark:border-white transition-colors"
+                aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} theme`}
+              >
+                {resolvedTheme === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+              </button>
             </div>
           </div>
 
@@ -79,6 +90,8 @@ export default function Navbar() {
               onClick={toggleMenu}
               className="p-2 border-4 border-black dark:border-white text-black dark:text-white transition-colors duration-300"
               aria-label="Toggle Menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
             </button>
@@ -94,7 +107,7 @@ export default function Navbar() {
           transition={{ duration: 0.3 }}
           className="md:hidden"
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-black border-b-4 border-black dark:border-white">
+          <div id="mobile-navigation" className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-black border-b-4 border-black dark:border-white">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -106,8 +119,16 @@ export default function Navbar() {
               >
                 {link.name}
               </Link>
-            ))}
-          </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+                className="flex items-center gap-2 px-3 py-2 border-2 border-transparent hover:border-black hover:dark:border-white text-base font-black uppercase"
+              >
+                {resolvedTheme === 'dark' ? <FiSun aria-hidden="true" /> : <FiMoon aria-hidden="true" />}
+                {resolvedTheme === 'dark' ? 'Light theme' : 'Dark theme'}
+              </button>
+            </div>
         </motion.div>
       )}
     </nav>

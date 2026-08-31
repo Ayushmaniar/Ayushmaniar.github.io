@@ -1,462 +1,121 @@
-'use client';
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import PDFViewer from '@/components/PDFViewer';
+import ResumeSection from '@/components/ResumeSection';
+import SectionHeading from '@/components/SectionHeading';
+import Timeline from '@/components/Timeline';
 import YouTubeFacade from '@/components/YouTubeFacade';
-import { projects } from '@/data/projects';
 import { aboutData } from '@/data/about';
-import { FaArrowDown, FaGithub, FaExternalLinkAlt, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { projects } from '@/data/projects';
+import { FaArrowDown, FaEnvelope, FaExternalLinkAlt, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-function Home() {
-  const [heroRef, heroInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const contactItems = [
+  { icon: FaEnvelope, title: 'Email', description: 'ayushmaniar70@gmail.com', link: 'mailto:ayushmaniar70@gmail.com' },
+  { icon: FaLinkedin, title: 'LinkedIn', description: 'Connect with me on LinkedIn', link: 'https://www.linkedin.com/in/ayush-maniar' },
+  { icon: FaGithub, title: 'GitHub', description: 'Explore open-source work', link: 'https://github.com/ayushmaniar' },
+  { icon: FaTwitter, title: 'X / Twitter', description: 'Follow research and project updates', link: 'https://x.com/AyushManiar' },
+];
 
-  const [resumeRef, resumeInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const impactItems = [
+  ['NeurIPS 2025', 'Multi-agent collaboration research'],
+  ['$120M+', 'Business value created at Walmart'],
+  ['Riot Games', 'Generative AI research internship'],
+];
 
-  const [contactRef, contactInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Ayush Maniar',
+  url: 'https://ayushmaniar.github.io',
+  jobTitle: 'AI Researcher and Builder',
+  alumniOf: ['Indian Institute of Technology Madras', 'University of California San Diego'],
+  sameAs: ['https://github.com/ayushmaniar', 'https://www.linkedin.com/in/ayush-maniar', 'https://x.com/AyushManiar'],
+};
 
-  const contactItems = [
-    {
-      icon: <FaEnvelope className="text-3xl text-black dark:text-white" />,
-      title: "Email",
-      description: "ayushmaniar70@gmail.com",
-      link: "mailto:ayushmaniar70@gmail.com",
-    },
-    {
-      icon: <FaLinkedin className="text-3xl text-black dark:text-white" />,
-      title: "LinkedIn",
-      description: "Connect with me on LinkedIn",
-      link: "https://www.linkedin.com/in/ayush-maniar",
-    },
-    {
-      icon: <FaGithub className="text-3xl text-black dark:text-white" />,
-      title: "GitHub",
-      description: "Check out my code and projects",
-      link: "https://github.com/ayushmaniar",
-    },
-    {
-      icon: <FaTwitter className="text-3xl text-black dark:text-white" />,
-      title: "Twitter",
-      description: "Follow me for updates",
-      link: "https://x.com/AyushManiar",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 }
-    }
-  };
-
+export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen overflow-x-clip">
       <Navbar />
-
-      {/* Hero Section */}
-      <motion.section
-        ref={heroRef}
-        initial={{ opacity: 0 }}
-        animate={heroInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8 }}
-        className="flex items-center justify-center min-h-screen pt-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h1
-            initial={{ y: 20 }}
-            animate={heroInView ? { y: 0 } : { y: 20 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter mb-6 border-4 border-black dark:border-white p-4 shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] inline-block"
-          >
-            Hi, I&apos;m Ayush Maniar
-          </motion.h1>
-
-          <motion.p
-            initial={{ y: 20 }}
-            animate={heroInView ? { y: 0 } : { y: 20 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl sm:text-2xl font-bold mb-8 flex flex-col items-center gap-2"
-          >
-            <span className="flex items-center gap-2 justify-center">
-              <span role="img" aria-label="desktop computer">🖥️</span>
-              MS-CSE Student at UC San Diego
-            </span>
-            <span className="flex items-center gap-2 justify-center">
-              <span role="img" aria-label="chart">📊</span>
-              Ex Data Scientist - III at Walmart
-            </span>
-            <span className="flex items-center gap-2 justify-center">
-              <span role="img" aria-label="graduation cap">🎓</span>
-              IIT Madras 2021 Alumni
-            </span>
-          </motion.p>
-
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={heroInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <a
-              href="#resume"
-              className="px-8 py-3 border-4 border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all duration-300 flex items-center font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_rgba(255,255,255,1)] active:translate-x-2 active:translate-y-2 active:shadow-none"
-            >
-              View Resume <FaArrowDown className="ml-2" />
-            </a>
-            <a
-              href="#projects"
-              className="px-8 py-3 border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_rgba(255,255,255,1)] active:translate-x-2 active:translate-y-2 active:shadow-none"
-            >
-              Explore Projects
-            </a>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* About Section */}
-      <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.1 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl font-black uppercase tracking-tighter mb-4">About Me</h1>
-            <div className="w-16 h-2 bg-black dark:bg-white mx-auto"></div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.1 }}
-            className="bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] p-6 md:p-10"
-          >
-            <div className="flex flex-col md:flex-row gap-12 items-center">
-              <div className="md:w-3/10 flex justify-center">
-                <motion.img
-                  src="/Ayush_Maniar_UCSD_ID_PIC.png"
-                  alt="Ayush Maniar"
-                  className="max-w-full h-auto w-64 md:w-auto border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)]"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true }}
-                />
-              </div>
-              <div className="md:w-7/10 prose dark:prose-invert max-w-none text-justify">
-                {aboutData.paragraphs.map((para, i) => (
-                  <p key={i} className="mb-5 text-black dark:text-white font-medium text-lg md:text-lg">
-                    {para}
-                  </p>
-                ))}
-              
-              </div>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-3 focus:text-black focus:font-black">Skip to content</a>
+      <main id="main-content">
+        <section className="flex items-center justify-center min-h-screen pt-20 pb-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white">
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="font-black uppercase tracking-[0.18em] text-sm mb-5">AI researcher · agentic systems builder</p>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter mb-6 border-4 border-black dark:border-white p-4 shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] inline-block">
+              Hi, I&apos;m Ayush Maniar
+            </h1>
+            <p className="text-xl sm:text-2xl font-bold max-w-3xl mx-auto mb-8">
+              I build multi-agent AI systems, creative tools, and research that moves from idea to impact.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left mb-8">
+              {impactItems.map(([label, detail]) => (
+                <div key={label} className="border-2 border-black dark:border-white p-3">
+                  <p className="font-black uppercase">{label}</p>
+                  <p className="font-bold text-sm">{detail}</p>
+                </div>
+              ))}
             </div>
-          </motion.div>
-
-          {/* Life Trajectory Timeline - Modern Vertical & Alternating */}
-          <div className="w-full mt-16">
-            <h2 className="text-3xl font-black uppercase tracking-tighter mb-10 text-center">The Adventure Timeline</h2>
-            <div className="relative w-full max-w-2xl mx-auto">
-              {/* Vertical Timeline Line */}
-              <div className="absolute left-1/2 top-0 h-full w-2 bg-black dark:bg-white z-0" style={{ transform: 'translateX(-50%)' }}></div>
-              {/* Timeline Events (Reversed Order) */}
-              <div className="flex flex-col gap-16">
-                {/* Riot Games Internship (2025) */}
-                <div className="flex items-center w-full relative group">
-                  <div className="w-1/2 flex justify-end pr-8">
-                    <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-right">
-                      <div className="flex flex-col items-end">
-                        <div className="bg-white p-2 border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] mb-2 overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/riot-games.jpg" alt="Riot Games Logo" className="w-16 h-16 object-contain" />
-                        </div>
-                        <div className="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] px-4 py-2 font-black text-lg mb-1 uppercase tracking-wider">2025 Summer</div>
-                        <div className="text-black dark:text-white font-black text-base uppercase">Riot Games</div>
-                        <div className="text-gray-700 dark:text-gray-300 text-sm font-bold">Research Scientist Intern - Generative AI</div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-black dark:bg-white border-4 border-black dark:border-white z-10" style={{ transform: 'translate(-50%,-50%)' }}></div>
-                  <div className="w-1/2"></div>
-                </div>
-
-                {/* UC San Diego (2024–Now) */}
-                <div className="flex items-center w-full relative group">
-                  <div className="w-1/2"></div>
-                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-black dark:bg-white border-4 border-black dark:border-white z-10" style={{ transform: 'translate(-50%,-50%)' }}></div>
-                  <div className="w-1/2 flex justify-start pl-8">
-                    <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-left">
-                      <div className="flex flex-col items-start">
-                        <div className="bg-white p-2 border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] mb-2 overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/University_of_California_San_Diego.avif" alt="UCSD Seal" className="w-16 h-16 object-contain" />
-                        </div>
-                        <div className="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] px-4 py-2 font-black text-lg mb-1 uppercase tracking-wider">2024–Now</div>
-                        <div className="text-black dark:text-white font-black text-base uppercase">UC San Diego</div>
-                        <div className="text-gray-700 dark:text-gray-300 text-sm font-bold">MS-CSE, AI Specialization</div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-                {/* Walmart (2021-2024) */}
-                <div className="flex items-center w-full relative group">
-                  <div className="w-1/2 flex justify-end pr-8">
-                    <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-right">
-                      <div className="flex flex-col items-end">
-                        <div className="bg-white p-2 border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] mb-2 overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/Walmart_logo.png" alt="Walmart Logo" className="w-16 h-16 object-contain" />
-                        </div>
-                        <div className="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] px-4 py-2 font-black text-lg mb-1 uppercase tracking-wider">2021–2024</div>
-                        <div className="text-black dark:text-white font-black text-base uppercase">Walmart Global Tech</div>
-                        <div className="text-gray-700 dark:text-gray-300 text-sm font-bold">Data Scientist III</div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-black dark:bg-white border-4 border-black dark:border-white z-10" style={{ transform: 'translate(-50%,-50%)' }}></div>
-                  <div className="w-1/2"></div>
-                </div>
-                {/* Hyperverge Internship (2019) */}
-                <div className="flex items-center w-full relative group">
-                  <div className="w-1/2"></div>
-                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-black dark:bg-white border-4 border-black dark:border-white z-10" style={{ transform: 'translate(-50%,-50%)' }}></div>
-                  <div className="w-1/2 flex justify-start pl-8">
-                    <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-left">
-                      <div className="flex flex-col items-start">
-                        <div className="bg-white p-2 border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] mb-2 overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/hyperverge-logo.webp" alt="Hyperverge Logo" className="w-10 h-10 object-contain" />
-                        </div>
-                        <div className="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] px-3 py-1 font-black text-sm mb-1 uppercase tracking-wider">2019</div>
-                        <div className="text-gray-700 dark:text-gray-300 text-sm font-bold">Intern, Hyperverge</div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-                {/* IIT Madras (2017-2021) */}
-                <div className="flex items-center w-full relative group">
-                  <div className="w-1/2 flex justify-end pr-8">
-                    <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-right">
-                      <div className="flex flex-col items-end">
-                        <div className="bg-white p-2 border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] mb-2 overflow-hidden">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src="/bg_removed.avif" alt="IIT Madras Logo" className="w-16 h-16 object-contain" />
-                        </div>
-                        <div className="bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] px-4 py-2 font-black text-lg mb-1 uppercase tracking-wider">2017–2021</div>
-                        <div className="text-black dark:text-white font-black text-base uppercase">IIT Madras</div>
-                        <div className="text-gray-700 dark:text-gray-300 text-sm font-bold">B.Tech, Electrical Engineering</div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 top-1/2 w-6 h-6 bg-black dark:bg-white border-4 border-black dark:border-white z-10" style={{ transform: 'translate(-50%,-50%)' }}></div>
-                  <div className="w-1/2"></div>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="#projects" className="px-8 py-3 border-4 border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-all flex items-center font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none">Explore Projects</a>
+              <a href="#resume" className="px-8 py-3 border-4 border-black dark:border-white bg-white dark:bg-black text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all flex items-center font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none">View Resume <FaArrowDown className="ml-2" /></a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.1 }}
-            className="text-center mb-12"
-          >
-            <h1 className="text-4xl font-black uppercase tracking-tighter mb-4">My Projects</h1>
-            <div className="w-16 h-2 bg-black dark:bg-white mx-auto mb-6"></div>
-            <p className="text-lg font-bold">
-              Showcasing research and development work in AI Agents.
-            </p>
-          </motion.div>
-
-          {/* Dynamic Project Mapping */}
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              className="bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] mb-10"
-            >
-              <div className="aspect-w-16 aspect-h-9 relative border-b-4 border-black dark:border-white">
-                <YouTubeFacade youtubeId={project.youtubeId} title={project.title} />
-              </div>
-
-              <div className={`p-8 md:p-10 ${index > 0 ? 'border-t-4 border-black dark:border-white' : ''}`}>
-                <div className="flex items-center flex-wrap gap-3 mb-4">
-                  <h2 className="text-2xl md:text-3xl font-black uppercase text-black dark:text-white">
-                    {project.title}
-                  </h2>
-                  {project.badge && (
-                    <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white font-black uppercase whitespace-nowrap shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:shadow-[2px_2px_0_0_rgba(255,255,255,1)]">
-                      {project.badge}
-                    </span>
-                  )}
+        <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeading title="About Me" />
+            <div className="bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] p-6 md:p-10">
+              <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
+                <div className="md:w-3/10 flex justify-center shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/Ayush_Maniar_UCSD_ID_PIC.png" alt="Ayush Maniar" className="max-w-full h-auto w-56 md:w-64 border-4 border-black dark:border-white shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)]" />
                 </div>
+                <div className="md:w-7/10 max-w-none">
+                  {aboutData.paragraphs.map((paragraph) => <p key={paragraph} className="mb-5 last:mb-0 text-black dark:text-white font-medium text-lg leading-relaxed text-left md:text-justify">{paragraph}</p>)}
+                </div>
+              </div>
+            </div>
+            <Timeline events={aboutData.timeline} />
+          </div>
+        </section>
 
-                {project.paragraphs.map((desc, i) => (
-                  <p key={i} className="text-black dark:text-white font-medium mb-4 text-base md:text-lg">
-                    {desc}
-                  </p>
-                ))}
-
-                {project.features && (
-                  <div className="mb-6">
-                    <h3 className="text-xl font-black uppercase mb-3">Key Features</h3>
-                    <ul className="text-left text-black dark:text-white font-medium space-y-2">
-                      {project.features.map((feature, i) => (
-                        <li key={i} dangerouslySetInnerHTML={{ __html: feature }} />
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {project.workflows && (
-                  <div className="mb-8">
-                    <h3 className="text-xl font-black uppercase mb-3 text-black dark:text-white">Real Workflows</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                      {project.workflows.map(wf => (
-                        <div key={wf.id} className="bg-white dark:bg-black border-4 border-black dark:border-white p-4 shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)]">
-                          <h4 className="font-black uppercase text-black dark:text-white">{wf.title}</h4>
-                          <p className="font-bold text-sm text-black dark:text-white">{wf.description}</p>
-                        </div>
-                      ))}
+        <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white">
+          <div className="max-w-6xl mx-auto">
+            <SectionHeading title="Selected Projects" description="Research and development work in multi-agent AI and creative automation." />
+            <div className="space-y-10">
+              {projects.map((project) => (
+                <article key={project.id} className="bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] overflow-hidden">
+                  <YouTubeFacade youtubeId={project.youtubeId} title={project.title} />
+                  <div className="p-6 md:p-10">
+                    <div className="flex items-center flex-wrap gap-3 mb-4">
+                      <h3 className="text-2xl md:text-3xl font-black uppercase text-black dark:text-white">{project.title}</h3>
+                      {project.badge && <span className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white font-black uppercase whitespace-nowrap">{project.badge}</span>}
                     </div>
+                    {project.paragraphs.map((paragraph) => <p key={paragraph} className="text-black dark:text-white font-medium mb-4 text-base md:text-lg leading-relaxed">{paragraph}</p>)}
+                    {project.features && <div className="mb-6"><h3 className="text-xl font-black uppercase mb-3">Key Features</h3><ul className="space-y-2">{project.features.map((feature) => <li key={feature.title} className="font-medium leading-relaxed"><strong>{feature.title}.</strong> {feature.description}{feature.code && <code className="block mt-2 max-w-full overflow-x-auto bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white px-2 py-1 text-sm">{feature.code}</code>}</li>)}</ul></div>}
+                    {project.workflows && <div className="mb-8"><h3 className="text-xl font-black uppercase mb-3">Real Workflows</h3><div className="grid grid-cols-1 md:grid-cols-2 gap-4">{project.workflows.map((workflow) => <div key={workflow.id} className="border-4 border-black dark:border-white p-4 shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)]"><h4 className="font-black uppercase">{workflow.title}</h4><p className="font-medium text-sm">{workflow.description}</p></div>)}</div></div>}
+                    <div className="flex flex-wrap gap-2 mb-6">{project.tags.map((tag) => <span key={tag} className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white font-black uppercase text-sm">{tag}</span>)}</div>
+                    <div className="flex flex-wrap gap-4">{project.links.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center border-4 border-black dark:border-white px-4 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none">{link.iconType === 'github' ? <FaGithub className="mr-2" /> : <FaExternalLinkAlt className="mr-2" />}{link.label}</a>)}</div>
                   </div>
-                )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white font-black uppercase text-sm shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:shadow-[2px_2px_0_0_rgba(255,255,255,1)]">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+        <ResumeSection />
 
-                <div className="flex flex-wrap gap-4 mt-8">
-                  {project.links.map(link => (
-                    <a
-                      key={link.url}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center border-4 border-black dark:border-white px-4 py-2 bg-white dark:bg-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all font-black uppercase shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0_0_rgba(255,255,255,1)] active:translate-x-2 active:translate-y-2 active:shadow-none"
-                    >
-                      {link.iconType === 'github' && <FaGithub className="mr-2" />}
-                      {link.iconType !== 'github' && <FaExternalLinkAlt className="mr-2" />}
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-
-
-        </div>
-      </section>
-
-      {/* Resume Section */}
-      <section id="resume" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white border-b-8 border-black dark:border-white">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            ref={resumeRef}
-            initial={{ opacity: 0, y: 50 }}
-            animate={resumeInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-black uppercase text-center mb-12 tracking-tighter">Resume</h2>
-
-            <PDFViewer pdfUrl="/Ayush_Maniar_Resume.pdf" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white">
-        <div
-          ref={contactRef}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-black uppercase tracking-tighter mb-4 text-black dark:text-white">Get In Touch</h2>
-            <div className="w-16 h-2 bg-black dark:bg-white mx-auto mb-6"></div>
-            <p className="text-lg font-bold max-w-2xl mx-auto text-black dark:text-white">
-              If you&apos;d like to collaborate on a project, discuss research opportunities,
-              or just have a chat about AI and data science, feel free to reach out!
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={contactInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {contactItems.map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                variants={itemVariants}
-                className="bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] p-6 flex items-center hover:translate-y-1 hover:translate-x-1 hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0_0_rgba(255,255,255,1)] active:translate-x-2 active:translate-y-2 active:shadow-none transition-all duration-200"
-              >
-                <div className="mr-4">{item.icon}</div>
-                <div>
-                  <h3 className="text-2xl font-black uppercase tracking-tighter text-black dark:text-white">{item.title}</h3>
-                  <p className="font-bold text-black dark:text-white">{item.description}</p>
-                </div>
-              </motion.a>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
+        <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white">
+          <div className="max-w-4xl mx-auto">
+            <SectionHeading title="Get In Touch" description="Let&apos;s collaborate on research, build useful AI systems, or compare notes on data and games." />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {contactItems.map(({ icon: Icon, title, description, link }) => <a key={title} href={link} target={link.startsWith('http') ? '_blank' : undefined} rel={link.startsWith('http') ? 'noopener noreferrer' : undefined} className="bg-white dark:bg-black border-4 border-black dark:border-white shadow-[8px_8px_0_0_rgba(0,0,0,1)] dark:shadow-[8px_8px_0_0_rgba(255,255,255,1)] p-6 flex items-center hover:translate-y-1 hover:translate-x-1 hover:shadow-none transition-all duration-200"><Icon className="text-3xl mr-4 shrink-0" aria-hidden="true" /><div><h3 className="text-2xl font-black uppercase tracking-tighter">{title}</h3><p className="font-bold">{description}</p></div></a>)}
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
-    </div >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    </div>
   );
 }
-
-export default Home;
