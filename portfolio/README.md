@@ -1,6 +1,6 @@
 # Ayush Maniar Portfolio
 
-My personal portfolio website built with Next.js, TailwindCSS, and Framer Motion.
+Personal portfolio for Ayush Maniar, an AI researcher and builder focused on multi-agent systems, agentic tooling, and creative AI.
 
 ## Live Demo
 
@@ -8,13 +8,12 @@ Visit the website at [https://ayushmaniar.github.io](https://ayushmaniar.github.
 
 ## Features
 
-- Responsive design
-- Dark/Light mode
-- Smooth animations using Framer Motion
-- Blog section
-- Projects showcase
-- Contact information
-- PDF viewer for resume
+- Responsive desktop and mobile layouts
+- Accessible dark and light themes
+- Research and open-source project showcase
+- Deferred, in-page resume preview with a direct PDF fallback
+- Search and social metadata, sitemap, and robots configuration
+- Static export for GitHub Pages
 
 ## Development
 
@@ -54,7 +53,9 @@ npm run build
 
 ## Deployment
 
-This project is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
+This project is automatically deployed to GitHub Pages by GitHub Actions whenever commits are pushed to `main`. Creating a local commit alone does not publish it.
+
+The GitHub Actions workflow builds the static `out/` directory and publishes it to GitHub Pages. The `deploy` script is retained only for manual legacy deployment and is not the standard release path.
 
 ## Technologies Used
 
